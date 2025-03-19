@@ -11,11 +11,12 @@ pipeline {
        
         stage('Build') {
             steps {
-                // Runs the Maven build command
-                script {
-                    // This is a basic command to clean the project, compile source code and package it
-                    cd micro-services/employee-service
-                    sh '/usr/lib/maven/3/apache-maven-3.9.9/bin/mvn clean package'
+                // Set the context directory for this block of steps
+                dir('micro-services/employee-service') {
+                    script {
+                        // Run the Maven build command in the specified directory
+                        sh '/usr/lib/maven/3/apache-maven-3.9.9/bin/mvn clean package'
+                    }
                 }
             }
         }
