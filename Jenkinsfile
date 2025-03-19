@@ -14,7 +14,8 @@ pipeline {
                 // Runs the Maven build command
                 script {
                     // This is a basic command to clean the project, compile source code and package it
-                    mvn 'clean package'
+                    cd micro-services/employee-service
+                    sh '/usr/lib/maven/3/apache-maven-3.9.9/bin/mvn clean package'
                 }
             }
         }
